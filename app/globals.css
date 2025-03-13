@@ -1,0 +1,40 @@
+@import "tailwindcss";
+/* @import "tailwindcss/preflight"; esto lo pone feo */
+
+@theme{
+    --color-background: #f8f6f2;
+    --color-background-alt: #e0d4bc;
+    --color-foreground: #352f36;
+    --color-foreground-alt: #0C0C0C;
+    --color-border: #292929;
+    --color-input: #292929;
+    --color-ring: #f8f6f2;
+    --color-font: #0C0C0C;
+    --radius: 0.5rem;
+
+    /* Brand Colors */
+    --color-primary: #5c3444;  
+    --color-primary-foreground: #f8f6f2;
+    --color-secondary: #FFC0CB; 
+    --color-secondary-foreground: #0C0C0C;
+    --color-accent: #ffdde1; 
+    --color-accent-foreground: #0C0C0C;
+
+    /* Status Colors */
+    --color-success: #4ade80;
+    --color-warning: #f59e0b;
+    --color-info: #00b5ad;
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #f8f6f2;
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
