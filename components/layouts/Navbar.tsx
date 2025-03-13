@@ -13,7 +13,7 @@ export default function Navbar() {
   const { getCartQuantity } = useCartStore();
 
   return (
-    <header className="fixed top-0 z-50 w-full backdrop-blur-md bg-white/80">
+    <header className="fixed top-0 z-50 w-full backdrop-blur-md bg-background/80">
     <div className="container flex justify-between items-center px-4 mx-auto h-20">
       <div className="flex gap-12 items-center">
         <Link className="text-2xl font-bold cursor-pointer text-primary" href="/">{siteConfig.business.name}</Link>
@@ -33,7 +33,7 @@ export default function Navbar() {
           <Link href="/order" className="!rounded-button relative">
             <i className="fas fa-shopping-cart"/>
             <span className="sr-only">Carrito</span>
-            <span className="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{getCartQuantity()}</span>
+            <span className="flex absolute -top-2 -right-2 justify-center items-center w-5 h-5 text-xs text-white rounded-full bg-primary">{getCartQuantity()}</span>
           </Link>
         ) : (
           <Button className="!rounded-button" asChild>
@@ -57,7 +57,7 @@ export default function Navbar() {
               {item === 'Carrito' ? (
                 <>
                   <i className="fas fa-shopping-cart"/>
-                  <span className="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{getCartQuantity()}</span>
+                  <span className="flex absolute -top-2 -right-2 justify-center items-center w-5 h-5 text-xs text-white rounded-full bg-primary">{getCartQuantity()}</span>
                 </>
               ) : item}
             </Link>

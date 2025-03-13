@@ -19,7 +19,7 @@ export const HeroSection = () => {
           <p className="max-w-lg text-xl text-primary/80">
             Experimenta la perfecta mezcla de artesanía tradicional e innovación moderna en cada creación hecha a mano.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-4 lg:flex-row">
             <Button className="bg-primary text-background hover:bg-primary/90 text-lg px-8 py-6 !rounded-button" asChild>
               <Link href="/order">Explorar Menú</Link>
             </Button>

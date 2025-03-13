@@ -22,23 +22,43 @@ export const ProductsSection = ({ products }: ProductsSectionProps) => {
     }
   }
 
+  // Función auxiliar para traducir categorías
+  const getCategoryName = (category: keyof ProductCategories): string => {
+    switch(category) {
+      case 'cakes': return 'Pasteles'
+      case 'donuts': return 'Donas'
+      case 'coffee': return 'Café'
+      default: return category
+    }
+  }
+
   return (
     <section id="menu" className="py-20 bg-background">
       <div className="container px-4 mx-auto">
         <h2 className="mb-12 text-4xl text-center font-great-vibes text-primary">Nuestras Deliciosas Ofertas</h2>
         <Tabs defaultValue="cakes" className="w-full">
-          <TabsList className="flex justify-center mb-8">
-            {(Object.keys(products) as Array<keyof ProductCategories>).map((category) => (
-              <TabsTrigger
-                key={category}
-                value={category}
-                className="px-6 py-3 capitalize"
-              >
-                <i className={`fas fa-${getCategoryIcon(category)} mr-2`}/>
-                {category === 'cakes' ? 'Pasteles' : category === 'donuts' ? 'Donas' : 'Café'}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <div className="relative mb-8 w-full">
+            <div className="flex absolute top-0 bottom-0 left-0 z-10 items-center w-8 bg-gradient-to-r to-transparent pointer-events-none from-background via-background/50 sm:hidden">
+              <i className="ml-2 fas fa-chevron-left text-primary/50" />
+            </div>
+            <div className="overflow-x-auto relative scroll-smooth sm:overflow-y-hidden sm:py-0">
+              <TabsList className="flex gap-2 px-8 py-2 mx-auto w-max">
+                {(Object.keys(products) as Array<keyof ProductCategories>).map((category) => (
+                  <TabsTrigger
+                    key={category}
+                    value={category}
+                    className="shrink-0 px-6 py-3 capitalize rounded-lg data-[state=active]:bg-primary/10 data-[state=active]:text-primary hover:bg-primary/5 transition-colors cursor-pointer select-none border border-secondary "
+                  >
+                    <i className={`fas fa-${getCategoryIcon(category)} mr-2`}/>
+                    {getCategoryName(category)}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+            <div className="flex absolute top-0 right-0 bottom-0 z-10 justify-end items-center w-8 bg-gradient-to-l to-transparent pointer-events-none from-background via-background/50 sm:hidden">
+              <i className="mr-2 fas fa-chevron-right text-primary/50" />
+            </div>
+          </div>
           {(Object.entries(products) as [keyof ProductCategories, Product[]][]).map(([category, items]) => (
             <TabsContent key={category} value={category}>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
